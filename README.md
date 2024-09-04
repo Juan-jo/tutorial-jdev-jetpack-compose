@@ -1,4 +1,4 @@
-## Jetpack Compos
+## Jetpack Compose
 
 
 ### Example Instagram Login Screen
