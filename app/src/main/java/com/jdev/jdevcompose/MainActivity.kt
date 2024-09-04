@@ -74,6 +74,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.jdev.jdevcompose.instagramapp.LoginScreen
 import com.jdev.jdevcompose.ui.CheckInfo
 import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
@@ -87,140 +88,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JdevComposeTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    var myName by remember {
-                        mutableStateOf("")
-                    }
-
-                    var selected by rememberSaveable {
-                        mutableStateOf("jdev")
-                    }
-
-
-                    val options = getOptions(listOf("Jdev", "Goku", "Vegenta"))
-
-                    var showDialog by remember {
-                        mutableStateOf(false)
-                    }
-
-                    var showCustomDialog by remember {
-                        mutableStateOf(false)
-                    }
-
-                    var showAccountDialog by remember {
-                        mutableStateOf(false)
-                    }
-
-                    var showConfirmDialog by remember {
-                        mutableStateOf(false)
-                    }
-
-                    Column(
-                        Modifier.verticalScroll(rememberScrollState())
-                    ) {
-
-                        MySpacer(size = 30)
-                        MyTextField(name = myName) {
-                            myName = it
-                        }
-
-                        MySpacer(size = 10)
-                        MyName(name = myName)
-
-                        MySpacer(size = 5)
-                        MyDropDownMenu()
-                        MySpacer(size = 10)
-                        MyButton()
-                        MySpacer(size = 10)
-                        MyImage()
-                        MySpacer(size = 10)
-                        MyIcon()
-                        MySpacer(size = 10)
-                        MyProgress()
-                        MySpacer(size = 10)
-                        MySwitch()
-                        MySpacer(size = 10)
-                        MyCheckbox()
-                        MySpacer(size = 10)
-                        MyTriStatusCheckBox()
-                        MySpacer(size = 10)
-                        options.forEach {
-                            MyCheckboxComplex(it)
-                        }
-                        MySpacer(size = 10)
-                        MyRadioButton()
-                        MySpacer(size = 10)
-                        MyRadioButtonList(selected) { selected = it }
-                        MySpacer(size = 5)
-                        MyCard()
-
-                        MySpacer(size = 5)
-                        MyBadgeBox()
-                        MySpacer(size = 5)
-                        MyDivider()
-                        MySpacer(size = 5)
-                        BasicSlider()
-                        MySpacer(size = 5)
-                        
-                        Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                            Button(onClick = { showDialog = true }) {
-                                Text(text = "Mostrar Dialog")
-                            }
-                            MyDialog(
-                                show = showDialog,
-                                onDismiss = { showDialog = false },
-                                onConfirm = {
-                                    Log.i("jdev", "click onConfirm")
-                                })
-                        }
-                        MySpacer(size = 5)
-                        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                            Button(onClick = { showCustomDialog = true }) {
-                                Text(text = "Mostrar Custom Dialog")
-                            }
-                            MySimpleCustomDialog(show = showCustomDialog,  onDismiss = { showCustomDialog = false})
-                        }
-
-                        MySpacer(size = 5)
-                        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-
-                            Button(onClick = { showAccountDialog = true }) {
-                                Text(text = "Dialog Account")
-                            }
-
-                            MyCustomDialog(show = showAccountDialog, onDismiss = {
-                                showAccountDialog = false
-                            })
-                        }
-
-                        MySpacer(size = 5)
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center
-                        ) {
-
-                            OutlinedButton(onClick = {
-                                showConfirmDialog = true
-                            }) {
-                                Text(text = "Dialog Confirm")
-                            }
-
-                            MyConfirmationDialog(
-                                show = showConfirmDialog,
-                                onDismiss = {
-                                    showConfirmDialog = false
-                                }
-                            )
-
-                        }
-
-                        MySpacer(size = 90)
-
-                    }
-
-                }
+                LoginScreen()
                 /*Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android - ",
@@ -229,6 +97,146 @@ class MainActivity : ComponentActivity() {
                     MyColumn()
                 }*/
             }
+        }
+    }
+
+    @Composable
+    private fun Components() {
+        Surface(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            var myName by remember {
+                mutableStateOf("")
+            }
+
+            var selected by rememberSaveable {
+                mutableStateOf("jdev")
+            }
+
+
+            val options = getOptions(listOf("Jdev", "Goku", "Vegenta"))
+
+            var showDialog by remember {
+                mutableStateOf(false)
+            }
+
+            var showCustomDialog by remember {
+                mutableStateOf(false)
+            }
+
+            var showAccountDialog by remember {
+                mutableStateOf(false)
+            }
+
+            var showConfirmDialog by remember {
+                mutableStateOf(false)
+            }
+
+            Column(
+                Modifier.verticalScroll(rememberScrollState())
+            ) {
+
+                MySpacer(size = 30)
+                MyTextField(name = myName) {
+                    myName = it
+                }
+
+                MySpacer(size = 10)
+                MyName(name = myName)
+
+                MySpacer(size = 5)
+                MyDropDownMenu()
+                MySpacer(size = 10)
+                MyButton()
+                MySpacer(size = 10)
+                MyImage()
+                MySpacer(size = 10)
+                MyIcon()
+                MySpacer(size = 10)
+                MyProgress()
+                MySpacer(size = 10)
+                MySwitch()
+                MySpacer(size = 10)
+                MyCheckbox()
+                MySpacer(size = 10)
+                MyTriStatusCheckBox()
+                MySpacer(size = 10)
+                options.forEach {
+                    MyCheckboxComplex(it)
+                }
+                MySpacer(size = 10)
+                MyRadioButton()
+                MySpacer(size = 10)
+                MyRadioButtonList(selected) { selected = it }
+                MySpacer(size = 5)
+                MyCard()
+
+                MySpacer(size = 5)
+                MyBadgeBox()
+                MySpacer(size = 5)
+                MyDivider()
+                MySpacer(size = 5)
+                BasicSlider()
+                MySpacer(size = 5)
+
+                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Button(onClick = { showDialog = true }) {
+                        Text(text = "Mostrar Dialog")
+                    }
+                    MyDialog(
+                        show = showDialog,
+                        onDismiss = { showDialog = false },
+                        onConfirm = {
+                            Log.i("jdev", "click onConfirm")
+                        })
+                }
+                MySpacer(size = 5)
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Button(onClick = { showCustomDialog = true }) {
+                        Text(text = "Mostrar Custom Dialog")
+                    }
+                    MySimpleCustomDialog(
+                        show = showCustomDialog,
+                        onDismiss = { showCustomDialog = false })
+                }
+
+                MySpacer(size = 5)
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+
+                    Button(onClick = { showAccountDialog = true }) {
+                        Text(text = "Dialog Account")
+                    }
+
+                    MyCustomDialog(show = showAccountDialog, onDismiss = {
+                        showAccountDialog = false
+                    })
+                }
+
+                MySpacer(size = 5)
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+
+                    OutlinedButton(onClick = {
+                        showConfirmDialog = true
+                    }) {
+                        Text(text = "Dialog Confirm")
+                    }
+
+                    MyConfirmationDialog(
+                        show = showConfirmDialog,
+                        onDismiss = {
+                            showConfirmDialog = false
+                        }
+                    )
+
+                }
+
+                MySpacer(size = 90)
+
+            }
+
         }
     }
 }
