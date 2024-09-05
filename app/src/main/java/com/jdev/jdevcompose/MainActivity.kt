@@ -75,6 +75,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jdev.jdevcompose.instagramapp.LoginScreen
+import com.jdev.jdevcompose.twitter.TwitterPostScreen
 import com.jdev.jdevcompose.ui.CheckInfo
 import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
@@ -88,7 +89,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JdevComposeTheme {
-                LoginScreen()
+                TwitterPostScreen()
+                //LoginScreen()
                 /*Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android - ",
