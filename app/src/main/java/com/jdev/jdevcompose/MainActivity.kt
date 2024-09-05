@@ -81,6 +81,7 @@ import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
 import com.jdev.jdevcompose.ui.MyDialog
 import com.jdev.jdevcompose.ui.MySimpleCustomDialog
+import com.jdev.jdevcompose.ui.SuperHeroStinckyView
 import com.jdev.jdevcompose.ui.SuperHeroView
 import com.jdev.jdevcompose.ui.theme.JdevComposeTheme
 
@@ -90,7 +91,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JdevComposeTheme {
-                SuperHeroView()
+                SuperHeroStinckyView()
+                //SuperHeroView()
 
                 //TwitterPostScreen()
                 //LoginScreen()

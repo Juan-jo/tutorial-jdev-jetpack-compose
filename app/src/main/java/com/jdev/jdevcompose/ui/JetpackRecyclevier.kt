@@ -3,7 +3,9 @@ package com.jdev.jdevcompose.ui
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -59,6 +61,7 @@ fun SimpleRecycleView() {
         }
     }
 }
+
 @Preview(
     showSystemUi = true
 )
@@ -72,7 +75,7 @@ fun SuperHeroView() {
         modifier = Modifier.fillMaxWidth()
     ) {
         LazyColumn(
-            verticalArrangement =  Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
             state = rvState,
             modifier = Modifier.weight(1f)
         ) {
@@ -92,7 +95,7 @@ fun SuperHeroView() {
             }
         }
 
-        if(showButton) {
+        if (showButton) {
             Button(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
@@ -130,6 +133,43 @@ fun SuperHeroGridView() {
                     Toast.makeText(context, it.superheroName, Toast.LENGTH_SHORT).show()
                 }
             )
+        }
+    }
+}
+
+@Preview(
+    showSystemUi = true
+)
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun SuperHeroStinckyView() {
+
+    val context = LocalContext.current
+    val superhero = getSuperheroes().groupBy { it.publisher }
+
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+
+        superhero.forEach { (publisher, hero) ->
+            stickyHeader {
+                Text(
+                    text = publisher,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.DarkGray),
+                    fontSize = 16.sp
+                )
+            }
+
+            items(hero) { superhero1 ->
+                ItemHero(
+                    superhero = superhero1,
+                    onItemSelected = {
+                        Toast.makeText(context, it.superheroName, Toast.LENGTH_SHORT).show()
+                    }
+                )
+            }
         }
     }
 }
