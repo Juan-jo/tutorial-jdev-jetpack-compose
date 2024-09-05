@@ -6,3 +6,7 @@
 
 ### Example Twitter post
 ![alt text](assets/twiter_post.png)
+
+
+### Example Recycler View Heroes
+![alt text](assets/superheroes_rv.png)
