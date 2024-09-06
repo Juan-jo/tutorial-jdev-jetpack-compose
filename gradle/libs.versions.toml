@@ -9,6 +9,8 @@ lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.04.01"
 constraintLayout =  "1.0.1"
+navVersion = "2.8.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +31,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 
 androidx-constraintlayout-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintLayout" }
 androidx-material-icons-extended = {  group = "androidx.compose.material", name = "material-icons-extended"}
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
