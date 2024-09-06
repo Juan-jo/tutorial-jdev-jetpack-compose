@@ -77,6 +77,7 @@ import androidx.compose.ui.unit.sp
 import com.jdev.jdevcompose.instagramapp.LoginScreen
 import com.jdev.jdevcompose.twitter.TwitterPostScreen
 import com.jdev.jdevcompose.ui.CheckInfo
+import com.jdev.jdevcompose.ui.JdevScaffold
 import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
 import com.jdev.jdevcompose.ui.MyDialog
@@ -91,7 +92,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JdevComposeTheme {
-                SuperHeroStinckyView()
+                JdevScaffold()
+                //SuperHeroStinckyView()
                 //SuperHeroView()
 
                 //TwitterPostScreen()
