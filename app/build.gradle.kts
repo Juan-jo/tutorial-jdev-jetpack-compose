@@ -73,4 +73,6 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.livedata)
+    implementation(libs.androidx.squareup.retrofit2)
+    implementation(libs.androidx.squareup.converter.gson)
 }
