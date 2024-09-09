@@ -74,22 +74,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import com.jdev.jdevcompose.instagramapp.login.ui.LoginInstagramViewModel
+import com.jdev.jdevcompose.instagramapp.login.ui.LoginScreen
 import com.jdev.jdevcompose.ui.CheckInfo
 import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
 import com.jdev.jdevcompose.ui.MyDialog
 import com.jdev.jdevcompose.ui.MySimpleCustomDialog
-import com.jdev.jdevcompose.ui.NavRoutes
-import com.jdev.jdevcompose.ui.Screen1
-import com.jdev.jdevcompose.ui.Screen2
-import com.jdev.jdevcompose.ui.Screen3
-import com.jdev.jdevcompose.ui.Screen4
-import com.jdev.jdevcompose.ui.Screen5
 import com.jdev.jdevcompose.ui.theme.JdevComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -101,7 +92,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     contentColor = MaterialTheme.colorScheme.background
                 ) {
-                    val navigationController = rememberNavController()
+                /*    val navigationController = rememberNavController()
                     NavHost(
                         navController = navigationController,
                         startDestination = NavRoutes.Screen1.route
@@ -128,14 +119,15 @@ class MainActivity : ComponentActivity() {
                             )
                         }
 
-                    }
+                    }*/
+                    LoginScreen(LoginInstagramViewModel())
                 }
                 //JdevScaffold()
                 //SuperHeroStinckyView()
                 //SuperHeroView()
 
                 //TwitterPostScreen()
-                //LoginScreen()
+
                 /*Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android - ",
@@ -148,7 +140,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun Components() {
+    fun Components() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {

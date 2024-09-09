@@ -72,4 +72,5 @@ dependencies {
     implementation(libs.androidx.constraintlayout.constraintlayout.compose)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.compose.livedata)
 }
