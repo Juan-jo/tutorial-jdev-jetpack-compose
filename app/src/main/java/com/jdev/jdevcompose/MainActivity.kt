@@ -77,7 +77,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 //import androidx.hilt.navigation.compose.hiltViewModel
 import com.jdev.jdevcompose.instagramapp.login.ui.LoginInstagramViewModel
-import com.jdev.jdevcompose.instagramapp.login.ui.LoginScreen
+import com.jdev.jdevcompose.todoapp.addtasks.ui.TaskScreen
+import com.jdev.jdevcompose.todoapp.addtasks.ui.TaskScreenViewModel
 import com.jdev.jdevcompose.ui.CheckInfo
 import com.jdev.jdevcompose.ui.MyConfirmationDialog
 import com.jdev.jdevcompose.ui.MyCustomDialog
@@ -90,6 +91,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val loginInstagramViewModel: LoginInstagramViewModel by viewModels()
+    private val taskScreenViewModel: TaskScreenViewModel by viewModels()
 
     //private val loginInstagramViewModel: LoginInstagramViewModel = hiltViewModel()
 
@@ -101,9 +103,13 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     contentColor = MaterialTheme.colorScheme.background
                 ) {
-                    LoginScreen(
-                        loginInstagramViewModel = loginInstagramViewModel
+
+                    TaskScreen(
+                        taskScreenViewModel
                     )
+                    /*LoginScreen(
+                        loginInstagramViewModel = loginInstagramViewModel
+                    )*/
 
                 /*    val navigationController = rememberNavController()
                     NavHost(
