@@ -7,11 +7,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jdev.jdevcompose.instagramapp.login.domain.LoginUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginInstagramViewModel: ViewModel() {
+@HiltViewModel
+class LoginInstagramViewModel @Inject constructor(
+    private val loginUseCase: LoginUseCase) : ViewModel() {
 
-    val loginUseCase = LoginUseCase()
 
     private val _email = MutableLiveData<String>()
     private val _password = MutableLiveData<String>()
@@ -40,10 +43,9 @@ class LoginInstagramViewModel: ViewModel() {
                 password = password.value!!
             )
 
-            if(result != "") {
+            if (result != "") {
                 Log.i("delicias", "resultOk")
-            }
-            else {
+            } else {
                 Log.i("delicias", "No - Ok :/")
             }
 
@@ -55,7 +57,7 @@ class LoginInstagramViewModel: ViewModel() {
 
     private fun enabledLogin(email: String, password: String): Boolean {
         return (Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
-                password.length > 6 )
+                password.length > 6)
     }
 
 }

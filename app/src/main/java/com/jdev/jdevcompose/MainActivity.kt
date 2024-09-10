@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -74,6 +75,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+//import androidx.hilt.navigation.compose.hiltViewModel
 import com.jdev.jdevcompose.instagramapp.login.ui.LoginInstagramViewModel
 import com.jdev.jdevcompose.instagramapp.login.ui.LoginScreen
 import com.jdev.jdevcompose.ui.CheckInfo
@@ -82,8 +84,15 @@ import com.jdev.jdevcompose.ui.MyCustomDialog
 import com.jdev.jdevcompose.ui.MyDialog
 import com.jdev.jdevcompose.ui.MySimpleCustomDialog
 import com.jdev.jdevcompose.ui.theme.JdevComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val loginInstagramViewModel: LoginInstagramViewModel by viewModels()
+
+    //private val loginInstagramViewModel: LoginInstagramViewModel = hiltViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -92,6 +101,10 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     contentColor = MaterialTheme.colorScheme.background
                 ) {
+                    LoginScreen(
+                        loginInstagramViewModel = loginInstagramViewModel
+                    )
+
                 /*    val navigationController = rememberNavController()
                     NavHost(
                         navController = navigationController,
@@ -120,7 +133,6 @@ class MainActivity : ComponentActivity() {
                         }
 
                     }*/
-                    LoginScreen(LoginInstagramViewModel())
                 }
                 //JdevScaffold()
                 //SuperHeroStinckyView()
