@@ -77,6 +77,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 //import androidx.hilt.navigation.compose.hiltViewModel
 import com.jdev.jdevcompose.instagramapp.login.ui.LoginInstagramViewModel
+import com.jdev.jdevcompose.instagramapp.login.ui.LoginScreen
 import com.jdev.jdevcompose.todoapp.addtasks.ui.TaskScreen
 import com.jdev.jdevcompose.todoapp.addtasks.ui.TaskScreenViewModel
 import com.jdev.jdevcompose.ui.CheckInfo
@@ -104,12 +105,12 @@ class MainActivity : ComponentActivity() {
                     contentColor = MaterialTheme.colorScheme.background
                 ) {
 
-                    TaskScreen(
+                    /*TaskScreen(
                         taskScreenViewModel
-                    )
-                    /*LoginScreen(
-                        loginInstagramViewModel = loginInstagramViewModel
                     )*/
+                    LoginScreen(
+                        loginInstagramViewModel = loginInstagramViewModel
+                    )
 
                 /*    val navigationController = rememberNavController()
                     NavHost(

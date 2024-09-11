@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -15,6 +16,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    @Named("DogApi")
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://dog.ceo/")//://dog.ceo/api/breeds/image/random
@@ -24,7 +26,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providerLoginClient(retrofit: Retrofit): LoginClient {
+    fun providerLoginClient(@Named("DogApi") retrofit: Retrofit): LoginClient {
         return retrofit.create(LoginClient::class.java)
     }
 }
